@@ -1,7 +1,7 @@
 <template>
   <div class="fullscreen bg-grey-4">
     <div class="flex flex-center" style="height: 100%; width: 100%">
-      <q-card :style="$q.platform.is.mobile? 'width: 85%; height: 65%': 'width: 50%; height: 60%'">
+      <q-card class="shadow-10" :style="$q.platform.is.mobile? 'width: 85%; height: 65%': 'width: 50%; height: 60%'">
         <q-card-section
           :horizontal="!$q.platform.is.mobile"
           style="height: 100%"
