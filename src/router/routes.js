@@ -5,7 +5,8 @@ const routes = [
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', redirect: '/login' },
-      { path: 'dashboard', component: () => import('pages/Dashboard_one.vue')}
+      { path: 'dashboard-one', component: () => import('pages/Dashboard_one.vue')},
+      { path: 'dashboard-two', component: () => import('pages/Dashboard_two.vue')},
     ]
   },
   { path: '/login', component: () => import('pages/Login.vue') },

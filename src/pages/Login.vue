@@ -48,10 +48,10 @@
                   <q-btn class="full-width" label="Login" type="submit" @click="submit" color="green"/>
                   <div class="row q-mt-lg">
                     <div class="col-5">
-                      <q-btn class="full-width" flat icon="eva-google" color="grey-5" type="submit" to="/dashboard"/>
+                      <q-btn class="full-width" flat icon="eva-google" color="grey-5" type="submit" to="/dashboard-one"/>
                     </div>
                     <div class="offset-2 col-5">
-                      <q-btn class="full-width" flat icon="eva-facebook" color="blue" type="submit" to="/dashboard"/>
+                      <q-btn class="full-width" flat icon="eva-facebook" color="blue" type="submit" to="/dashboard-one"/>
                     </div>
                   </div>
                 </div>
@@ -77,9 +77,11 @@ export default {
   methods: {
     submit(){
       if(!this.$refs.loginForm.hasError){
-        this.$router.push('/dashboard');
+        this.$router.push('/dashboard-one');
         this.$q.notify({
-          message: 'Successfully Logged In'
+          message: 'Successfully Logged In',
+          color: 'positive',
+          timeout: 1500
         })
       }
     }
