@@ -106,7 +106,6 @@ export default {
   methods: {
     submit() {
       if (!this.$refs.loginForm.hasError) {
-        console.log("running");
         this.$router.push("/dashboard-one");
         this.$q.notify({
           message: "Successfully Logged In",
