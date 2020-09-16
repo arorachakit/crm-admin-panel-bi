@@ -96,7 +96,12 @@
                 <p class="text-caption q-my-none">2019</p>
               </div>
               <div class="offset-1 col-8">
-                <q-linear-progress class="q-mt-sm" color="red" size="sm" value=0.5 />
+                <q-linear-progress
+                  class="q-mt-sm"
+                  style="color: #e39b27"
+                  size="sm"
+                  value="0.5"
+                />
               </div>
             </div>
             <div class="row">
@@ -104,11 +109,15 @@
                 <p class="text-caption q-mb-none">2020</p>
               </div>
               <div class="offset-1 col-8">
-                <q-linear-progress class="q-mt-sm" color="blue" size="sm" value=0.75 />
+                <q-linear-progress
+                  class="q-mt-sm"
+                  color="blue"
+                  size="sm"
+                  value="0.75"
+                />
               </div>
             </div>
           </q-card-section>
-
         </q-card>
       </div>
       <!--B Column Two-->
@@ -188,6 +197,27 @@
         </div>
       </div>
     </div>
+    <!-- Third Row -->
+    <div class="row q-col-gutter-sm q-ma-sm q-pr-sm">
+      <!-- Column One-->
+      <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
+        <!--Card One Bar -->
+        <q-card style="height: 280px">
+          <q-card-section class="q-pa-sm" style="height: 100%">
+            <IEcharts :option="barGraphOption" :resizable="true" />
+          </q-card-section>
+        </q-card>
+      </div>
+      <!-- Column Two -->
+      <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
+        <!--Card Two Area -->
+        <q-card style="height: 280px">
+          <q-card-section class="q-pa-sm" style="height: 100%">
+            <IEcharts :option="areaOption" :resizable="true" />
+          </q-card-section>
+        </q-card>
+      </div>
+    </div>
   </q-page>
 </template>
 <script>
@@ -202,7 +232,9 @@ export default {
       horizontalBarGraphOption: {},
       donutPieOption: {},
       smoothLine: {},
-      twoLines: {}
+      twoLines: {},
+      barGraphOption: {},
+      areaOption: {}
     };
   },
   created: function() {
@@ -410,7 +442,7 @@ export default {
           }
         },
         legend: {
-          data: ['A', 'B'],
+          data: ["A", "B"],
           bottom: 1
         },
         grid: {
@@ -427,26 +459,158 @@ export default {
         },
         series: [
           {
-            name: 'A',
+            name: "A",
             data: [-52, 1, -10, -60, 48, -76, -29],
             type: "line",
             symbol: "none",
             smooth: true,
             lineStyle: {
               color: "#10B1F6"
-            },
-
+            }
           },
           {
-            name: 'B',
+            name: "B",
             data: [95, -47, -77, 25, -42, 81, -79],
             smooth: true,
             type: "line",
             symbol: "none",
             lineStyle: {
               color: "#FD4D4E"
+            }
+          }
+        ]
+      };
+      this.barGraphOption = {
+        title: {
+          text: "Sample",
+          left: "center"
+        },
+        legend: {
+          bottom: 1
+        },
+        grid: {
+          bottom: "20%",
+          top: "20%"
+        },
+        tooltip: {},
+        dataset: {
+          source: [
+            ["product", "2015", "2016"],
+            ["A", 43.3, 85.8],
+            ["B", 83.1, 73.4],
+            ["C", 86.4, 65.2],
+            ["D ", 90.8, 75.8],
+            ["E", 100, 90],
+            ["F", 135, 105]
+          ]
+        },
+        xAxis: { type: "category" },
+        yAxis: {},
+        // Declare several bar series, each will be mapped
+        // to a column of dataset.source by default.
+        series: [
+          {
+            type: "bar",
+            barWidth: "35%",
+            color: "#e39b27"
+          },
+          {
+            type: "bar",
+            barWidth: "35%",
+            color: "#8484d2"
+          },
+          {
+            name: "A",
+            data: [44, 84, 87, 91, 100, 135],
+            type: "line",
+            lineStyle: {
+              color: "blue"
+            }
+          }
+        ]
+      };
+      this.areaOption = {
+        title: {
+          text: "Sample",
+          left: 'center'
+        },
+        tooltip: {
+          trigger: "item"
+        },
+        grid: {
+          bottom: "10%",
+          top: "20%",
+          right: "5%"
+        },
+        xAxis: {
+          type: "category",
+          axisLine: {
+            show: true
+          }
+        },
+        yAxis: {
+          splitLine: {
+            show: false
+          }
+        },
+        series: [
+          {
+            name: "A",
+            type: "line",
+            smooth: true,
+            data: [0, 20, 15, 15, 50, 35, 80, 35, 40, 0],
+            symbol: "none",
+            lineStyle: {
+              width: 0
             },
-
+            areaStyle: {
+              color: {
+                type: "linear",
+                x: 0,
+                y: 1,
+                x2: 1,
+                y2: 0,
+                colorStops: [
+                  {
+                    offset: 0,
+                    color: "#6577e3"
+                  },
+                  {
+                    offset: 1,
+                    color: "#8484d2"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            name: "B",
+            type: "line",
+            smooth: true,
+            data: [0, 70, 5, 30, 20, 50, 10, 50, 25, 0],
+            symbol: "none",
+            lineStyle: {
+              width: 0
+            },
+            areaStyle: {
+              color: {
+                type: "linear",
+                x: 1,
+                y: 0,
+                x2: 1,
+                y2: 1,
+                colorStops: [
+                  {
+                    offset: 0,
+                    color: "#6577e3"
+                  },
+                  {
+                    offset: 1,
+                    color: "#8484d2"
+                  }
+                ]
+              }
+            }
           }
         ]
       };
