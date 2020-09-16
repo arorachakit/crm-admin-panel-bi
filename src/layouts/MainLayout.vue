@@ -67,6 +67,24 @@ export default {
           link: '/dashboard-two'
         },
         {
+          icon: 'o_dashboard',
+          label: 'Sign Ups',
+          separator: false,
+          link: '/dashboard-two'
+        },
+        {
+          icon: 'o_dashboard',
+          label: 'Calendar',
+          separator: false,
+          link: '/dashboard-two'
+        },
+        {
+          icon: 'o_dashboard',
+          label: 'Settings',
+          separator: false,
+          link: '/dashboard-two'
+        },
+        {
           icon: 'o_help',
           iconColor: 'primary',
           label: 'Help',
