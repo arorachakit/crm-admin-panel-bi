@@ -219,7 +219,7 @@
       </div>
     </div>
     <div class="row q-col-gutter-sm q-ma-sm q-pr-sm">
-      <q-card class="q-mt-sm" style="height: 50px; width: 100%">
+      <q-card class="q-mt-sm q-ml-sm" style="height: 50px; width: 100%">
           <q-card-section class="q-py-sm">
             <div class="row" style="height: 20px">
               <div class="col-2">
