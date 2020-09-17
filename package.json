@@ -12,7 +12,9 @@
   "dependencies": {
     "@quasar/extras": "^1.0.0",
     "core-js": "^3.6.5",
-    "quasar": "^1.0.0"
+    "echarts": "^4.9.0",
+    "quasar": "^1.0.0",
+    "vue-echarts-v3": "^2.0.1"
   },
   "devDependencies": {
     "@quasar/app": "^2.0.0",
