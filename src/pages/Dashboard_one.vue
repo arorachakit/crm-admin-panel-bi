@@ -11,7 +11,7 @@
           <q-card-section>
             <div class="row q-pt-md">
               <div class="col-8">
-                <p class="text-h3">$3,123</p>
+                <p class="text-h3">$3,123M</p>
                 <p>Total Sales</p>
               </div>
               <div class="offset-1 col-2">
@@ -26,7 +26,7 @@
         <q-card class="upper-card">
           <q-card-section>
             <div class="flex column flex-center q-pt-md">
-              <p class="text-h3" style="color: green">3700</p>
+              <p class="text-h3" style="color: #4F5168">3700</p>
               <p>Total Opportunities</p>
             </div>
           </q-card-section>
@@ -71,7 +71,7 @@
         <q-card class="upper-card">
           <q-card-section>
             <div class="flex column flex-center q-pt-md">
-              <p class="text-h3" style="color: violet">+89%</p>
+              <p class="text-h3" style="color: #94bba8">+89%</p>
               <p>Brand Popularity</p>
             </div>
           </q-card-section>
@@ -89,11 +89,11 @@
           </q-card-section>
         </q-card>
         <!-- A Card Two Horizontal -->
-        <q-card class="q-mt-md" style="height: 50px; width: 100%">
+        <q-card class="q-mt-sm" style="height: 50px; width: 100%">
           <q-card-section class="q-py-xs">
             <div class="row" style="height: 20px">
               <div class="col-2">
-                <p class="text-caption q-my-none">2019</p>
+                <p class="text-caption q-my-none">2018</p>
               </div>
               <div class="offset-1 col-8">
                 <q-linear-progress
@@ -106,12 +106,12 @@
             </div>
             <div class="row">
               <div class="col-2">
-                <p class="text-caption q-mb-none">2020</p>
+                <p class="text-caption q-mb-none">2019</p>
               </div>
               <div class="offset-1 col-8">
                 <q-linear-progress
                   class="q-mt-sm"
-                  color="blue"
+                  style="color: #8484d2"
                   size="sm"
                   value="0.75"
                 />
@@ -166,7 +166,7 @@
           </div>
         </div>
         <!-- B Card Five Donught Pie  -->
-        <div class="q-mt-md">
+        <div class="q-mt-sm">
           <q-card style="height: 230px">
             <q-card-section class="q-pa-sm" style="height: 100%">
               <IEcharts :option="donutPieOption" :resizable="true" />
@@ -180,7 +180,7 @@
         <div class="row q-col-gutter-sm">
           <!-- C Card Six -->
           <div class="col-lg-12 col-md-6 col-sm-6 col-xs-6">
-            <q-card style="height: 169px">
+            <q-card style="height: 165px">
               <q-card-section class="q-pa-sm" style="height: 100%">
                 <IEcharts :option="smoothLine" :resizable="true" />
               </q-card-section>
@@ -188,7 +188,7 @@
           </div>
           <!-- C Card Seven -->
           <div class="col-lg-12 col-md-6 col-sm-6 col-xs-6">
-            <q-card style="height: 169px">
+            <q-card style="height: 165px">
               <q-card-section class="q-pa-sm" style="height: 100%">
                 <IEcharts :option="twoLines" :resizable="true" />
               </q-card-section>
@@ -218,6 +218,25 @@
         </q-card>
       </div>
     </div>
+    <div class="row q-col-gutter-sm q-ma-sm q-pr-sm">
+      <q-card class="q-mt-sm" style="height: 50px; width: 100%">
+          <q-card-section class="q-py-sm">
+            <div class="row" style="height: 20px">
+              <div class="col-2">
+                <p class="text-caption q-my-none">Efficiency</p>
+              </div>
+              <div class="offset-1 col-9">
+                <q-linear-progress
+                  class="q-mt-sm"
+                  style="color: #8484d2"
+                  size="md"
+                  value="0.85"
+                />
+              </div>
+            </div>
+          </q-card-section>
+      </q-card>
+    </div>
   </q-page>
 </template>
 <script>
@@ -243,39 +262,70 @@ export default {
   methods: {
     getInitialData() {
       this.smallPieOption = {
+
         title: {
-          text: "New Products",
+          text: "Investor's Share",
           left: "center",
           textStyle: {
             fontSize: 14
           }
         },
+        tooltip: {
+          trigger: "item"
+        },
+        // visualMap: {
+        //   show: false,
+        //   min: 80,
+        //   max: 600,
+        //   inRange: {
+        //     colorLightness: [0.5, 1]
+        // }
+        // },
         series: [
           {
             name: "Pie",
             type: "pie",
+            startAngle: 145,
             label: {
-              fontSize: 10
+              fontSize: 10,
+              formatter: '{b}',
+              fontStyle: 'italic',
+
             },
             labelLine: {
               length: 10,
               lenght2: 2
             },
+            itemStyle: {
+              shadowBlur: 5
+            },
+            tooltip: {
+              formatter: '{d}',
+              textStyle: {
+                fontStyle: 'oblique',
+                fontWeight: 'lighter'
+              }
+            },
             radius: "55%",
             center: ["50%", "60%"],
+            roseType: 'radius',
+            hoverOffset: 15,
+            amimationType: 'scale',
+            animationEasing:'elasticOut',
             data: [
-              { value: 335, name: "A" },
-              { value: 400, name: "B" },
-              { value: 234, name: "C" }
+              { value: 335, name: "A", itemStyle: {color: '#6577e3'}},
+              { value: 310, name: "B", itemStyle: {color: '#e39b27'}},
+              { value: 274, name: "C", itemStyle: {color: '#4F5168'}},
+              { value: 235, name: "D", itemStyle: {color: '#94bba8'}},
+
             ],
 
-            emphasis: {
-              itemStyle: {
-                shadowBlur: 10,
-                shadowOffsetX: 0,
-                shadowColor: "rgba(0, 0, 0, 0.5)"
-              }
-            }
+            // itemStyle: {
+            //     color: '#6577e3',
+            //     shadowBlur: 200,
+            //     shadowColor: 'rgba(0, 0, 0, 0.5)'
+            // },
+
           }
         ]
       };
@@ -283,9 +333,6 @@ export default {
         title: {
           text: "Quarterly Revenue",
           left: "center"
-          // textStyle: {
-
-          // }
         },
         tooltip: {
           trigger: "item"
@@ -295,11 +342,16 @@ export default {
           bottom: 1
         },
         xAxis: {
-          name: "Revenue",
-          type: "value"
+
+          type: "value",
+          axisLine: {show: false},
+          axisLabel: {
+            show: true,
+            fontWeight: 'lighter'
+          },
+          axisTick: {show: false}
         },
         yAxis: {
-          name: "Quarters",
           type: "category",
           data: ["Q1", "Q2", "Q3", "Q4"]
         },
@@ -338,13 +390,13 @@ export default {
       };
       this.donutPieOption = {
         title: {
-          text: "Sample",
+          text: "Country Distribution",
           left: "center"
         },
         legend: {
           orient: "vertical",
           left: "left",
-          data: ["A", "B", "C", "D", "E"],
+
           textStyle: {
             fontSize: 10
           },
@@ -359,25 +411,27 @@ export default {
             avoidLabelOverlap: false,
             label: {
               show: false,
-              position: "center"
+              position: "center",
+              formatter: '{b} {d}%'
             },
             top: 10,
             emphasis: {
               label: {
                 show: true,
-                fontSize: "30",
-                fontWeight: "bold"
+                fontSize: "18",
+                fontWeight: "bolder"
               }
             },
             labelLine: {
               show: false
             },
             data: [
-              { value: 335, name: "A" },
-              { value: 310, name: "B" },
-              { value: 234, name: "C" },
-              { value: 135, name: "D" },
-              { value: 1548, name: "E" }
+               { value: 1548, name: "India", itemStyle: {color: '#6577e3'} },
+              { value: 335, name: "Spain", itemStyle: {color: '#e39b27'} },
+              { value: 310, name: "USA", itemStyle: {color: '#4F5168'} },
+              { value: 234, name: "UK", itemStyle: {color: '#94bba8'} },
+              { value: 135, name: "Others", itemStyle: {color: '#6C6D8B'} },
+
             ]
           }
         ]
@@ -435,15 +489,16 @@ export default {
       };
       this.twoLines = {
         title: {
-          text: "2019 Prducts",
+          text: "Trajectory",
           left: "center",
           textStyle: {
             fontSize: 14
           }
         },
         legend: {
-          data: ["A", "B"],
-          bottom: 1
+          bottom: '1%',
+          itemWidth: 10,
+
         },
         grid: {
           bottom: "20%",
@@ -459,30 +514,33 @@ export default {
         },
         series: [
           {
-            name: "A",
+            name: "Expected",
             data: [-52, 1, -10, -60, 48, -76, -29],
             type: "line",
             symbol: "none",
             smooth: true,
+            itemStyle: {color: "#8484d2"},
             lineStyle: {
-              color: "#10B1F6"
+              color: "#8484d2"
             }
           },
           {
-            name: "B",
+            name: "Actual",
+
             data: [95, -47, -77, 25, -42, 81, -79],
             smooth: true,
             type: "line",
             symbol: "none",
+            itemStyle: {color: "#e39b27"},
             lineStyle: {
-              color: "#FD4D4E"
+              color: "#e39b27"
             }
           }
         ]
       };
       this.barGraphOption = {
         title: {
-          text: "Sample",
+          text: "Income vs Expense",
           left: "center"
         },
         legend: {
@@ -492,16 +550,21 @@ export default {
           bottom: "20%",
           top: "20%"
         },
-        tooltip: {},
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: {
+            type: 'shadow'
+          }
+        },
         dataset: {
           source: [
-            ["product", "2015", "2016"],
-            ["A", 43.3, 85.8],
-            ["B", 83.1, 73.4],
-            ["C", 86.4, 65.2],
-            ["D ", 90.8, 75.8],
-            ["E", 100, 90],
-            ["F", 135, 105]
+            ["product", "Income", "Expense"],
+            ["Jan", 43.3, 85.8],
+            ["Feb", 83.1, 73.4],
+            ["March", 86.4, 65.2],
+            ["April", 90.8, 75.8],
+            ["May", 100, 90],
+            ["Jun", 135, 105]
           ]
         },
         xAxis: { type: "category" },
@@ -517,21 +580,20 @@ export default {
           {
             type: "bar",
             barWidth: "35%",
-            color: "#8484d2"
+            color: "#6577e3"
           },
-          {
-            name: "A",
+          { name: 'Profit',
             data: [44, 84, 87, 91, 100, 135],
             type: "line",
             lineStyle: {
-              color: "blue"
+              color: "#6C6D8B"
             }
           }
         ]
       };
       this.areaOption = {
         title: {
-          text: "Sample",
+          text: "Resource Utilization",
           left: 'center'
         },
         tooltip: {
@@ -544,6 +606,7 @@ export default {
         },
         xAxis: {
           type: "category",
+
           axisLine: {
             show: true
           }
@@ -555,7 +618,7 @@ export default {
         },
         series: [
           {
-            name: "A",
+            name: "Team A",
             type: "line",
             smooth: true,
             data: [0, 20, 15, 15, 50, 35, 80, 35, 40, 0],
@@ -584,7 +647,7 @@ export default {
             }
           },
           {
-            name: "B",
+            name: "Team B",
             type: "line",
             smooth: true,
             data: [0, 70, 5, 30, 20, 50, 10, 50, 25, 0],
