@@ -59,7 +59,6 @@
                   <q-btn
                     class="full-width"
                     label="Login"
-                    type="submit"
                     @click="submit"
                     color="green"
                   />
@@ -70,8 +69,7 @@
                         flat
                         icon="eva-google"
                         color="grey-5"
-                        type="submit"
-                        to="/dashboard-one"
+                        @click="submit"
                       />
                     </div>
                     <div class="offset-2 col-5">
@@ -80,8 +78,7 @@
                         flat
                         icon="eva-facebook"
                         color="blue"
-                        type="submit"
-                        to="/dashboard-one"
+                        @click="submit"
                       />
                     </div>
                   </div>
