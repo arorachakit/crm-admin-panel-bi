@@ -273,6 +273,11 @@ export default {
         tooltip: {
           trigger: "item"
         },
+        toolbox: {
+          feature: {
+            saveAsImage: {}
+          }
+        },
         // visualMap: {
         //   show: false,
         //   min: 80,
