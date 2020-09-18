@@ -220,21 +220,21 @@
     </div>
     <div class="row q-col-gutter-sm q-ma-sm q-pr-sm">
       <q-card class="q-mt-sm q-ml-sm" style="height: 50px; width: 100%">
-          <q-card-section class="q-py-sm">
-            <div class="row" style="height: 20px">
-              <div class="col-2">
-                <p class="text-caption q-my-none">Efficiency</p>
-              </div>
-              <div class="offset-1 col-9">
-                <q-linear-progress
-                  class="q-mt-sm"
-                  style="color: #8484d2"
-                  size="md"
-                  value="0.85"
-                />
-              </div>
+        <q-card-section class="q-py-sm">
+          <div class="row" style="height: 20px">
+            <div class="col-2">
+              <p class="text-caption q-my-none">Efficiency</p>
             </div>
-          </q-card-section>
+            <div class="offset-1 col-9">
+              <q-linear-progress
+                class="q-mt-sm"
+                style="color: #8484d2"
+                size="md"
+                value="0.85"
+              />
+            </div>
+          </div>
+        </q-card-section>
       </q-card>
     </div>
   </q-page>
@@ -262,7 +262,6 @@ export default {
   methods: {
     getInitialData() {
       this.smallPieOption = {
-
         title: {
           text: "Investor's Share",
           left: "center",
@@ -272,6 +271,11 @@ export default {
         },
         tooltip: {
           trigger: "item"
+        },
+        toolbox: {
+          feature: {
+            saveAsImage: {}
+          }
         },
         // visualMap: {
         //   show: false,
@@ -288,9 +292,8 @@ export default {
             startAngle: 145,
             label: {
               fontSize: 10,
-              formatter: '{b}',
-              fontStyle: 'italic',
-
+              formatter: "{b}",
+              fontStyle: "italic"
             },
             labelLine: {
               length: 10,
@@ -300,32 +303,30 @@ export default {
               shadowBlur: 5
             },
             tooltip: {
-              formatter: '{d}',
+              formatter: "{d}",
               textStyle: {
-                fontStyle: 'oblique',
-                fontWeight: 'lighter'
+                fontStyle: "oblique",
+                fontWeight: "lighter"
               }
             },
             radius: "55%",
             center: ["50%", "60%"],
-            roseType: 'radius',
+            roseType: "radius",
             hoverOffset: 15,
-            amimationType: 'scale',
-            animationEasing:'elasticOut',
+            amimationType: "scale",
+            animationEasing: "elasticOut",
             data: [
-              { value: 335, name: "A", itemStyle: {color: '#6577e3'}},
-              { value: 310, name: "B", itemStyle: {color: '#e39b27'}},
-              { value: 274, name: "C", itemStyle: {color: '#4F5168'}},
-              { value: 235, name: "D", itemStyle: {color: '#94bba8'}},
-
-            ],
+              { value: 335, name: "A", itemStyle: { color: "#6577e3" } },
+              { value: 310, name: "B", itemStyle: { color: "#e39b27" } },
+              { value: 274, name: "C", itemStyle: { color: "#4F5168" } },
+              { value: 235, name: "D", itemStyle: { color: "#94bba8" } }
+            ]
 
             // itemStyle: {
             //     color: '#6577e3',
             //     shadowBlur: 200,
             //     shadowColor: 'rgba(0, 0, 0, 0.5)'
             // },
-
           }
         ]
       };
@@ -337,19 +338,23 @@ export default {
         tooltip: {
           trigger: "item"
         },
+        toolbox: {
+          feature: {
+            saveAsImage: {}
+          }
+        },
         legend: {
           data: ["Product A", "Product B", "Product C"],
           bottom: 1
         },
         xAxis: {
-
           type: "value",
-          axisLine: {show: false},
+          axisLine: { show: false },
           axisLabel: {
             show: true,
-            fontWeight: 'lighter'
+            fontWeight: "lighter"
           },
-          axisTick: {show: false}
+          axisTick: { show: false }
         },
         yAxis: {
           type: "category",
@@ -393,6 +398,11 @@ export default {
           text: "Country Distribution",
           left: "center"
         },
+        toolbox: {
+          feature: {
+            saveAsImage: {}
+          }
+        },
         legend: {
           orient: "vertical",
           left: "left",
@@ -412,7 +422,7 @@ export default {
             label: {
               show: false,
               position: "center",
-              formatter: '{b} {d}%'
+              formatter: "{b} {d}%"
             },
             top: 10,
             emphasis: {
@@ -426,12 +436,11 @@ export default {
               show: false
             },
             data: [
-               { value: 1548, name: "India", itemStyle: {color: '#6577e3'} },
-              { value: 335, name: "Spain", itemStyle: {color: '#e39b27'} },
-              { value: 310, name: "USA", itemStyle: {color: '#4F5168'} },
-              { value: 234, name: "UK", itemStyle: {color: '#94bba8'} },
-              { value: 135, name: "Others", itemStyle: {color: '#6C6D8B'} },
-
+              { value: 1548, name: "India", itemStyle: { color: "#6577e3" } },
+              { value: 335, name: "Spain", itemStyle: { color: "#e39b27" } },
+              { value: 310, name: "USA", itemStyle: { color: "#4F5168" } },
+              { value: 234, name: "UK", itemStyle: { color: "#94bba8" } },
+              { value: 135, name: "Others", itemStyle: { color: "#6C6D8B" } }
             ]
           }
         ]
@@ -496,9 +505,8 @@ export default {
           }
         },
         legend: {
-          bottom: '1%',
-          itemWidth: 10,
-
+          bottom: "1%",
+          itemWidth: 10
         },
         grid: {
           bottom: "20%",
@@ -519,7 +527,7 @@ export default {
             type: "line",
             symbol: "none",
             smooth: true,
-            itemStyle: {color: "#8484d2"},
+            itemStyle: { color: "#8484d2" },
             lineStyle: {
               color: "#8484d2"
             }
@@ -531,7 +539,7 @@ export default {
             smooth: true,
             type: "line",
             symbol: "none",
-            itemStyle: {color: "#e39b27"},
+            itemStyle: { color: "#e39b27" },
             lineStyle: {
               color: "#e39b27"
             }
@@ -543,6 +551,11 @@ export default {
           text: "Income vs Expense",
           left: "center"
         },
+        toolbox: {
+          feature: {
+            saveAsImage: {}
+          }
+        },
         legend: {
           bottom: 1
         },
@@ -551,9 +564,9 @@ export default {
           top: "20%"
         },
         tooltip: {
-          trigger: 'axis',
+          trigger: "axis",
           axisPointer: {
-            type: 'shadow'
+            type: "shadow"
           }
         },
         dataset: {
@@ -582,7 +595,8 @@ export default {
             barWidth: "35%",
             color: "#6577e3"
           },
-          { name: 'Profit',
+          {
+            name: "Profit",
             data: [44, 84, 87, 91, 100, 135],
             type: "line",
             lineStyle: {
@@ -594,10 +608,15 @@ export default {
       this.areaOption = {
         title: {
           text: "Resource Utilization",
-          left: 'center'
+          left: "center"
         },
         tooltip: {
           trigger: "item"
+        },
+        toolbox: {
+          feature: {
+            saveAsImage: {}
+          }
         },
         grid: {
           bottom: "10%",
