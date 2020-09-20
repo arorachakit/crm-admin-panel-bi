@@ -82,13 +82,15 @@
       <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
         <q-card style="height: 250px">
           <q-card-section class="q-pa-sm" style="height: 100%">
-            <IEcharts :option="guageOption" :resizable="true" />
+            <p class="q-ma-xs">Closed Business</p>
+            <IEcharts  :option="guageOption" :resizable="true" />
           </q-card-section>
         </q-card>
       </div>
       <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
         <q-card style="height: 250px">
-          <q-card-section class="q-pa-sm" style="height: 100%">
+          <q-card-section class="q-pa-sm" style="height: 90%">
+            <p class="q-ma-xs">Invoice Generate</p>
             <IEcharts :option="areaOption" :resizable="true" />
           </q-card-section>
         </q-card>
@@ -131,17 +133,93 @@
           </q-card-section>
         </q-card>
       </div>
-      <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
-        <q-card style="height: 435px">
-          <q-card-section class="q-pa-sm" style="height: 100%">
-
-          </q-card-section>
-        </q-card>
+      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+        <div class="q-pa-none">
+          <q-table
+            class = 'q-pt-xs'
+            style="height: 435px"
+            title="Recent Tickets"
+            :data="data"
+            :columns="columns"
+            row-key="name"
+            :filter="filter"
+            virtual-scroll
+            :rows-per-page-options="[0]"
+            :pagination.sync="pagination"
+          >
+            <template v-slot:top-right>
+              <q-input
+                borderless
+                dense
+                debounce="300"
+                v-model="filter"
+                placeholder="Search"
+              >
+                <template v-slot:append>
+                  <q-icon name="search" />
+                </template>
+              </q-input>
+            </template>
+            <template v-slot:body-cell-status="props">
+              <q-td key="status" :props="props">
+                <q-badge
+                  v-if="props.row.status"
+                  :color="badgeColor(props.row.status)"
+                >
+                  {{ props.row.status }}
+                </q-badge>
+              </q-td>
+            </template>
+          </q-table>
+        </div>
       </div>
-      <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+      <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
         <q-card style="height: 435px">
           <q-card-section class="q-pa-sm" style="height: 100%">
-
+            <q-scroll-area style="height: 100%; width: 100%">
+              <q-timeline class="q-pl-md q-py-none q-pr-xl" color="blue">
+                <q-timeline-entry heading tag="h6">
+                  Timeline
+                </q-timeline-entry>
+                <q-timeline-entry subtitle="All Hands Meeting"  icon="fas fa-handshake">
+                    At 2:00 PM
+                </q-timeline-entry>
+                <q-timeline-entry subtitle="Group Meeting" icon="fas fa-users">
+                  <q-avatar size="md">
+                    <img src="https://cdn.quasar.dev/img/avatar1.jpg" />
+                  </q-avatar>
+                  <q-avatar size="md">
+                    <img src="https://cdn.quasar.dev/img/avatar2.jpg" />
+                  </q-avatar>
+                  <q-avatar size="md">
+                    <img src="https://cdn.quasar.dev/img/avatar3.jpg" />
+                  </q-avatar>
+                  <q-avatar size="md">
+                    <img src="https://cdn.quasar.dev/img/avatar4.jpg" />
+                  </q-avatar>
+                </q-timeline-entry>
+                <q-timeline-entry
+                  subtitle="Build the prodcution release "
+                  color="green"
+                >
+                  <q-linear-progress
+                    class="q-mr-lg"
+                    color="green"
+                    size="sm"
+                    value="0.78"
+                  />
+                </q-timeline-entry>
+                <q-timeline-entry
+                  subtitle="Meeting with Rohini"
+                  body="At 5:00 pm"
+                  avatar="https://cdn.quasar.dev/img/avatar5.jpg"
+                />
+                <q-timeline-entry
+                  subtitle="Project Deployed"
+                  icon="fas fa-project-diagram"
+                />
+              </q-timeline>
+            </q-scroll-area>
           </q-card-section>
         </q-card>
       </div>
@@ -157,22 +235,105 @@ export default {
   data() {
     return {
       guageOption: {},
-      areaOption: {}
+      areaOption: {},
+      pagination: {
+        rowsPerPage: 0
+      },
+      filter: "",
+      columns: [
+        {
+          name: "status",
+          required: true,
+          label: "Status",
+          align: "left",
+          field: "status",
+          sortable: true
+        },
+        {
+          name: "subject",
+          align: "left",
+          label: "Subject",
+          field: "subject",
+          sortable: true
+        },
+        {
+          name: "department",
+          align: "left",
+          label: "Department",
+          field: "department",
+          sortable: true
+        },
+        {
+          name: "date",
+          align: "left",
+          label: "Date",
+          field: "date",
+          sortable: true
+        }
+      ],
+      data: [
+        {
+          status: "Open",
+          subject: "Website down for one week",
+          department: "Support",
+          date: "Today 2:00"
+        },
+        {
+          status: "Progress",
+          subject: "Loosing control on server",
+          department: "Support",
+          date: "Yesterday"
+        },
+        {
+          status: "Closed",
+          subject: "Authorizations keys",
+          department: "Support",
+          date: "27, Aug"
+        },
+        {
+          status: "Progress",
+          subject: "Chrome Installation",
+          department: "IT",
+          date: "Yesterday"
+        },
+        {
+          status: "Open",
+          subject: "Loosing control on server",
+          department: "Tech",
+          date: "Today 9:00"
+        },
+        {
+          status: "Open",
+          subject: "Plugin Installation",
+          department: "Support",
+          date: "13 Sept"
+        },
+        {
+          status: "Closed",
+          subject: "Plugin Installation",
+          department: "Support",
+          date: "11 Sept"
+        }
+      ]
     };
   },
   created: function() {
     this.getInitialData();
   },
   methods: {
+    badgeColor(status) {
+      if (status == "Open") {
+        return "green";
+      }
+      if (status == "Progress") {
+        return "blue";
+      }
+      if (status == "Closed") {
+        return "red";
+      }
+    },
     getInitialData() {
       this.guageOption = {
-        title: {
-          text: "Closed Business",
-
-          textStyle: {
-            fontSize: 14
-          }
-        },
         tooltip: {
           formatter: "{c}%"
         },
@@ -196,17 +357,13 @@ export default {
             },
             detail: {
               formatter: "{value}%",
-              fontSize: 25
+              fontSize: 20
             },
             data: [{ value: 93 }]
           }
         ]
       };
       this.areaOption = {
-        title: {
-          text: "Invoice Generate",
-          left: "center"
-        },
         tooltip: {
           trigger: "item"
         },
@@ -324,4 +481,5 @@ export default {
   height: 100px
   background: linear-gradient(to right, #01a9ac, #01dbdf)
 }
+
 </style>

@@ -67,25 +67,25 @@ export default {
           link: '/dashboard-two'
         },
         {
-          icon: 'o_dashboard',
+          icon: 'o_person_add',
           label: 'Sign Ups',
           separator: false,
-          link: '/dashboard-two'
+          link: '/sign-ups'
         },
         {
-          icon: 'o_dashboard',
+          icon: 'o_calendar_today',
           label: 'Calendar',
           separator: false,
-          link: '/dashboard-two'
+          link: '/calendar'
         },
         {
-          icon: 'o_dashboard',
+          icon: 'o_settings',
           label: 'Settings',
           separator: false,
-          link: '/dashboard-two'
+          link: '/settings'
         },
         {
-          icon: 'o_help',
+          icon: 'o_help_outline',
           iconColor: 'primary',
           label: 'Help',
           separator: false,
