@@ -5,7 +5,7 @@
         class="shadow-10"
         :style="
           $q.platform.is.mobile
-            ? 'width: 85%; height: 65%'
+            ? 'width: 85%; height: 75%'
             : 'width: 50%; height: 60%'
         "
       >
