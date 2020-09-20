@@ -274,7 +274,9 @@ export default {
         },
         toolbox: {
           feature: {
-            saveAsImage: {}
+            saveAsImage: {
+              title: 'Download'
+            }
           }
         },
         // visualMap: {
@@ -340,7 +342,9 @@ export default {
         },
         toolbox: {
           feature: {
-            saveAsImage: {}
+            saveAsImage: {
+              title: 'Download'
+            }
           }
         },
         legend: {
@@ -400,7 +404,9 @@ export default {
         },
         toolbox: {
           feature: {
-            saveAsImage: {}
+            saveAsImage: {
+              title: 'Download'
+            }
           }
         },
         legend: {
@@ -553,7 +559,9 @@ export default {
         },
         toolbox: {
           feature: {
-            saveAsImage: {}
+            saveAsImage: {
+              title: 'Download'
+            }
           }
         },
         legend: {
@@ -615,7 +623,9 @@ export default {
         },
         toolbox: {
           feature: {
-            saveAsImage: {}
+            saveAsImage: {
+              title: 'Download'
+            }
           }
         },
         grid: {
