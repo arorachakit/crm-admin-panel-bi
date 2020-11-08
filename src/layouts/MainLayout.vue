@@ -67,6 +67,12 @@ export default {
           link: '/dashboard-two'
         },
         {
+          icon: 'o_dashboard',
+          label: 'Dashboard Three',
+          separator: false,
+          link: '/dashboard-three'
+        },
+        {
           icon: 'o_person_add',
           label: 'Sign Ups',
           separator: false,
