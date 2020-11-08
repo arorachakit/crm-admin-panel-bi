@@ -13,7 +13,7 @@
     </div>
 
     <div class="row q-col-gutter-sm q-ma-sm q-pr-sm">
-      <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+      <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
         <q-card style="height: 300px" class="q-pa-md">
           <q-item>
             <q-item-section avatar>
@@ -26,13 +26,12 @@
               <q-item-label caption>Marketing Lead</q-item-label>
             </q-item-section>
           </q-item>
-          <q-item>
-            <q-item-section>
+          <q-item class="flex justify-between">
+            <span>
               Email Id
-            </q-item-section>
-            <q-item-section>
-              <span class="q-pl-md">rbolton1@fastcompany.com</span>
-            </q-item-section>
+            </span>
+
+            <span>rbolton1@fastcompany.com</span>
           </q-item>
           <q-card-section class="q-pt-none">
             <q-item-section>
@@ -40,23 +39,24 @@
             </q-item-section>
           </q-card-section>
           <q-separator />
-             <q-item>
-            <q-item-section class="q-mr-md">
-              Phone Number
-            </q-item-section>
-            <q-item-section class="q-pl-xl">
-              <span class="q-pl-xl q-ml-xl">8989475182</span>
-            </q-item-section>
+          <q-item class="flex justify-between">
+            <span> Phone Number </span>
+
+            <span>8989475182</span>
           </q-item>
-            <q-separator />
-           <q-card-section>
+          <q-separator />
+          <q-card-section>
             <q-item-section>
-              <q-btn color="green" icon-right="chat_bubble" label="Send Message" />
+              <q-btn
+                color="green"
+                icon-right="chat_bubble"
+                label="Send Message"
+              />
             </q-item-section>
           </q-card-section>
         </q-card>
       </div>
-      <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+      <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
         <q-card style="height: 300px" class="q-pa-md">
           <q-item>
             <q-item-section avatar>
@@ -69,13 +69,10 @@
               <q-item-label caption>Developement Lead</q-item-label>
             </q-item-section>
           </q-item>
-          <q-item>
-            <q-item-section>
-              Email Id
-            </q-item-section>
-            <q-item-section>
-              <span class="q-pl-xl">jmckeggie1@ehow.com</span>
-            </q-item-section>
+          <q-item class="flex justify-between">
+            <span>Email Id</span>
+
+            <span>jmckeggie1@ehow.com</span>
           </q-item>
           <q-card-section class="q-pt-none">
             <q-item-section>
@@ -83,23 +80,23 @@
             </q-item-section>
           </q-card-section>
           <q-separator />
-             <q-item>
-            <q-item-section class="q-mr-md">
-              Phone Number
-            </q-item-section>
-            <q-item-section class="q-pl-xl">
-              <span class="q-pl-xl q-ml-xl">8989475182</span>
-            </q-item-section>
+          <q-item class="flex justify-between">
+            <span> Phone Number </span>
+            <span>8989475182</span>
           </q-item>
-            <q-separator />
-           <q-card-section>
+          <q-separator />
+          <q-card-section>
             <q-item-section>
-              <q-btn color="green" icon-right="chat_bubble" label="Send Message" />
+              <q-btn
+                color="green"
+                icon-right="chat_bubble"
+                label="Send Message"
+              />
             </q-item-section>
           </q-card-section>
         </q-card>
       </div>
-      <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+      <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
         <q-card style="height: 300px">
           <q-card-section class="q-pa-sm" style="height: 100%">
             <q-timeline class="q-pl-md q-py-none q-pr-xl" color="blue">
@@ -120,6 +117,46 @@
                 icon="fas fa-mobile"
               />
             </q-timeline>
+          </q-card-section>
+        </q-card>
+      </div>
+            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+        <q-card style="height: 300px" class="q-pa-md">
+          <q-item>
+            <q-item-section avatar>
+              <q-avatar size="xl">
+                <img src="https://cdn.quasar.dev/img/avatar2.jpg" />
+              </q-avatar>
+            </q-item-section>
+            <q-item-section>
+              <q-item-label>Janie McKeggie</q-item-label>
+              <q-item-label caption>Developement Lead</q-item-label>
+            </q-item-section>
+          </q-item>
+          <q-item class="flex justify-between">
+            <span>Email Id</span>
+
+            <span>jmckeggie1@ehow.com</span>
+          </q-item>
+          <q-card-section class="q-pt-none">
+            <q-item-section>
+              <q-btn color="blue" icon-right="mail" label="Drop a mail" />
+            </q-item-section>
+          </q-card-section>
+          <q-separator />
+          <q-item class="flex justify-between">
+            <span> Phone Number </span>
+            <span>8989475182</span>
+          </q-item>
+          <q-separator />
+          <q-card-section>
+            <q-item-section>
+              <q-btn
+                color="green"
+                icon-right="chat_bubble"
+                label="Send Message"
+              />
+            </q-item-section>
           </q-card-section>
         </q-card>
       </div>
@@ -191,7 +228,7 @@ export default {
         ],
         yAxis: {
           type: "category",
-          data: ["Brand E", "Brand D", "Brand C", "Brand B", "Brand A"]
+          data: ["E", "D", "C", "B", "A"]
         },
         series: [
           {
